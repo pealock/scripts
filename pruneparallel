@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Initial announcement
+
+echo "Pruning files."
+
+sleep 1s
+
+# Store current directory size (pre-prune)
+
+unpruned="$(du -sh)"
+
+# Define cache files
+previews="Rendered - ********-****-****-****-************"
+cfa="********-****-****-****-************+********-****-****-****-************ *****.cfa"
+pek="********-****-****-****-************+********-****-****-****-************ *****.pek"
+
+
+tree -ifa | grep -e "$previews" -e "$cfa" -e "$pek" | "rm -rf {}"
+
+
+#Closing announcement
+
+echo "All files have been processed."
+sleep 1s
+echo "Old size was $unpruned"
+sleep 1s
+echo "New size is $(du -sh)"
