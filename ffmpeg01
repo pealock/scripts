@@ -1,0 +1,9 @@
+#!/bin/bash
+shopt -s globstar           # allow recursive globbing with **
+for f in *.MOV; do    # for all files ending with .MOV
+        # convert file, maintaining original extension and add temp_
+        ffmpeg -i "$f" -vcodec libx265 -crf 24 "temp_${f%.MOV}.MOV" &&
+        # rename temp file and override original file
+        mv "temp_$f" "$f"   # rename temp file and override original
+done
+shopt -u globstar           # turn recursive globbing off
