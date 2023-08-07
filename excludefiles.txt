@@ -1,5 +1,6 @@
+"Adobe Premiere Pro Video Previews"
+"Adobe Premiere Pro Audio Previews"
 *.lrprev
 *.mpgindex
 *.cfa
 *.pek
-"Rendered - ********-****-****-****-************.*"
